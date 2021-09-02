@@ -1,7 +1,7 @@
-const refItems = document.querySelectorAll(".item");
-console.log(`В списке ${refItems.length} категории.`);
+const itemsEl = document.querySelectorAll(".item");
+console.log(`В списке ${itemsEl.length} категории.`);
 
-const items = refItems;
+const items = itemsEl;
 console.log(items);
 items.forEach((item) => {
   const itemTitle = item.querySelector("h2").textContent;
