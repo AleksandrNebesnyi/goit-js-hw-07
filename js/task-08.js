@@ -30,6 +30,7 @@ refs.btnRender.addEventListener("click", () => {
   createBoxes(refs.input.value);
 });
 
-refClearBtn.addEventListener("click", () => {
+refs.btnDestroy.addEventListener("click", () => {
+  console.log(refs.boxesEl);
   refs.boxesEl.remove();
 });
