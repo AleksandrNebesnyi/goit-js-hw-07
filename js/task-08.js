@@ -6,15 +6,20 @@ const refs = {
 };
 
 function createBoxes(amount) {
-  const width = 30;
-  const height = 30;
+  let width = 30;
+  let height = 30;
   let step = 10;
+
+  if (refs.boxesEl.childElementCount > 0) {
+    width = refs.boxesEl.lastChild.clientWidth + step;
+    height = refs.boxesEl.lastChild.clientHeight + step;
+  }
+
   const elements = [];
   for (let i = 0; i < amount; i += 1) {
     const element = document.createElement("div");
     element.style.width = `${width}px`;
     element.style.height = `${height}px`;
-    // element.style.border = `1px solid lightgray`;
     element.style.background = `#${Math.round(Math.random() * 1000)}`;
     if (i > 0) {
       element.style.width = `${width + step}px`;
@@ -24,6 +29,7 @@ function createBoxes(amount) {
     elements.push(element);
   }
   refs.boxesEl.append(...elements);
+  refs.input.value = "";
 }
 
 refs.btnRender.addEventListener("click", () => {
